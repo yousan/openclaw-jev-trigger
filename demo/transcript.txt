@@ -1,0 +1,4 @@
+tick 1  "On it. Running the tests."          p=0.07   → quiet (no model call)
+tick 2  "Waiting for CI before I merge."     p=0.05   → quiet (no model call)
+tick 3  "Merged #41. Done."                  p=0.93   → FIRE: wake the model
+tick 4  (nothing new)                        p=0.92   → quiet (already fired)
