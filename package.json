@@ -1,0 +1,63 @@
+{
+  "name": "openclaw-jev-trigger",
+  "version": "0.1.0",
+  "description": "Natural-language conditions for OpenClaw automations, judged by Jev (TypeSafe) through the decisionModel role.",
+  "type": "module",
+  "license": "MIT",
+  "author": "yousan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yousan/openclaw-jev-trigger.git"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "jev",
+    "typesafe",
+    "automation",
+    "cron",
+    "trigger"
+  ],
+  "bin": {
+    "openclaw-jev-trigger": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "plugin:build": "npm run build && openclaw plugins build --entry ./dist/index.js",
+    "plugin:validate": "npm run build && openclaw plugins validate --entry ./dist/index.js",
+    "test": "vitest run --config ./vitest.config.ts",
+    "bench": "node bench/run.mjs"
+  },
+  "files": [
+    "dist",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=24.16"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.9.6"
+  },
+  "dependencies": {
+    "typebox": "^1.1.38"
+  },
+  "devDependencies": {
+    "openclaw": "2026.9.6",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.9.6"
+    },
+    "build": {
+      "openclawVersion": "2026.9.6"
+    }
+  }
+}

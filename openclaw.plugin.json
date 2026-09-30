@@ -1,0 +1,38 @@
+{
+  "id": "jev-trigger",
+  "name": "Jev Trigger",
+  "description": "Natural-language conditions for OpenClaw automations, judged by the decisionModel role (hosted Jev, local Kev, or ONNX).",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "threshold": {
+        "type": "number",
+        "minimum": 0.01,
+        "maximum": 1,
+        "description": "Default probability needed to fire (default 0.7)."
+      },
+      "timeoutMs": {
+        "type": "integer",
+        "minimum": 100,
+        "maximum": 30000,
+        "description": "Decision deadline in ms (default 10000)."
+      },
+      "maxEvidenceChars": {
+        "type": "integer",
+        "minimum": 200,
+        "maximum": 200000,
+        "description": "Evidence is clipped to this many characters (default 4000). Local ONNX models need ~1500."
+      }
+    },
+    "additionalProperties": false
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "jev_when"
+    ]
+  }
+}
